@@ -118,16 +118,6 @@ def _validate_config():
         msg = 'Missing namespace kwarg OR environment variable CC_DYNAMODB_NAMESPACE'
         logger.error('ConfigurationError: ' + msg)
         raise ConfigurationError(msg)
-    if _cached_config.aws_access_key_id is False:
-        # TODO: Is this really necessary? In the case of IAM authentication, no access key wanted
-        msg = 'Missing aws_access_key_id kwarg OR environment variable CC_DYNAMODB_ACCESS_KEY_ID'
-        logger.error('ConfigurationError: ' + msg)
-        raise ConfigurationError(msg)
-    if _cached_config.aws_secret_access_key is False:
-        # TODO: Is this really necessary? In the case of IAM authentication, no secret key wanted
-        msg = 'Missing aws_secret_access_key kwarg OR environment variable CC_DYNAMODB_SECRET_ACCESS_KEY'
-        logger.error('ConfigurationError: ' + msg)
-        raise ConfigurationError(msg)
     if _cached_config.port:
         try:
             _cached_config.port = int(_cached_config.port)
