@@ -379,6 +379,7 @@ class DynamoDBModel(Model):
 
         :param overwrite: set to True to force re-save deleted objects.
         """
+        log_data('Saving to table={}'.format(self.table().name), logging_level='warning')
         self.validate(overwrite=overwrite)
 
         has_changed_primary_key = self.has_changed_primary_key()
